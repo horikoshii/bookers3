@@ -2,11 +2,7 @@
   <div class="row">
     <div class="col-md-3">
       <h2>User Info</h2>
-      <% if @user.image.attached? %>
-       <%= image_tag user.image, size: "100x100" %>
-      <% else %>
-       <%= image_tag 'no_image', size: "100x100" %>
-      <% end %>
+      <%= image_tag @user.get_profile_image(100,100) %>
       <table class="table">
         <tbody>
           <tr></tr>
@@ -41,6 +37,31 @@
           </div>
         <% end %>
       </div>
+    </div>
+    <div class="col-md-8">
+      <h2>Books</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @books.each do |book| %>
+          <tr>
+            <th>
+              <%= link_to user_path(book.user.id) do %>
+                <%= image_tag book.user.get_profile_image(100,100) %>
+              <% end %>
+            </th>
+            <th><%= link_to book.title,book_path(book.id) %></th>
+            <th><%= book.body %></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
