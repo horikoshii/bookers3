@@ -1,7 +1,10 @@
-<% if flash[:notice] %>
-  <p class="alert alert-success"><%= notice %></p>
-<% elsif flash[:alert] %>
-  <p class="alert alert-danger"><%= alert %></p>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <div class="container">
