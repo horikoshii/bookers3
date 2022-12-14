@@ -1,11 +1,17 @@
+<% if flash[:notice] %>
+  <p class="alert alert-success"><%= notice %></p>
+<% elsif flash[:alert] %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
 <div class="container">
   <div class="row">
 
     <%= render 'users/user', user: @user %>
 
     <%= render 'books/book', book: @book %>
-    
-    
+
+
     <div class="col-md-8">
       <h2>Books</h2>
       <table class="table">
