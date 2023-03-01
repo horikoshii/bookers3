@@ -13,9 +13,9 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "jquery";
+import "script.js"
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 import anime from 'animejs/lib/anime.es.js';
-import "animate.js"
